@@ -1,0 +1,1075 @@
+D:\workshop\SVFT\sas-admin>sas-admin
+NAME:
+   sas-admin - SAS Viya Command Line Interface
+
+USAGE:
+   sas-admin [global options] command [command options] [arguments...]
+
+VERSION:
+   1.18.1
+
+COMMANDS:
+   authenticate, auth, authn    Handles authentication to the target environment.
+   help, h                      Shows a list of commands or help for one command.
+   plugins                      Manages plugins.
+   profile, prof                Shows and updates options.
+
+GLOBAL OPTIONS:
+   --colors-enabled             Enables or disables ANSI colored output. [$SAS_CLI_COLOR]
+   --help, -h                   Shows help.
+   --insecure, -k               Allows connections to TLS sites without validating the server certificates.
+   --locale "en"                Specifies a locale to use. [$LC_ALL, $LANG]
+   --log-file                   Specifies the file to write log events to. [$SAS_LOG_FILE]
+   --output                     Specifies output format - text, json, fulljson. [$SAS_OUTPUT]
+   --profile, -p "Default"      Specifies a named profile to use. [$SAS_CLI_PROFILE]
+   --quiet, -q                  Quiets spurious output, data only.
+   --sas-endpoint               Sets the URL to the SAS services. [$SAS_SERVICES_ENDPOINT]
+   --verbose                    Shows detailed processing information and output.
+   --version, -v                Prints the version.
+   --yes-to-all, -y             Suppresses all confirmation prompts by defaulting to 'yes'.
+
+COPYRIGHT:
+   (c) 2016-2021 SAS Institute Inc. All Rights Reserved.
+
+
+D:\workshop\SVFT\sas-admin>sas-admin --profile init
+NAME:
+   sas-admin - SAS Viya Command Line Interface
+
+USAGE:
+   sas-admin [global options] command [command options] [arguments...]
+
+VERSION:
+   1.18.1
+
+COMMANDS:
+   authenticate, auth, authn    Handles authentication to the target environment.
+   help, h                      Shows a list of commands or help for one command.
+   plugins                      Manages plugins.
+   profile, prof                Shows and updates options.
+
+GLOBAL OPTIONS:
+   --colors-enabled             Enables or disables ANSI colored output. [$SAS_CLI_COLOR]
+   --help, -h                   Shows help.
+   --insecure, -k               Allows connections to TLS sites without validating the server certificates.
+   --locale "en"                Specifies a locale to use. [$LC_ALL, $LANG]
+   --log-file                   Specifies the file to write log events to. [$SAS_LOG_FILE]
+   --output                     Specifies output format - text, json, fulljson. [$SAS_OUTPUT]
+   --profile, -p "Default"      Specifies a named profile to use. [$SAS_CLI_PROFILE]
+   --quiet, -q                  Quiets spurious output, data only.
+   --sas-endpoint               Sets the URL to the SAS services. [$SAS_SERVICES_ENDPOINT]
+   --verbose                    Shows detailed processing information and output.
+   --version, -v                Prints the version.
+   --yes-to-all, -y             Suppresses all confirmation prompts by defaulting to 'yes'.
+
+COPYRIGHT:
+   (c) 2016-2021 SAS Institute Inc. All Rights Reserved.
+
+
+D:\workshop\SVFT\sas-admin>sas-admin profile init
+Enter configuration options:
+
+Service Endpoint> http://server.demo.sas.com
+
+Output type (text|json|fulljson)> json
+
+Enable ANSI colored output (y/n)?> n
+Saved 'Default' profile to C:\Users\student\.sas\config.json.
+
+D:\workshop\SVFT\sas-admin>sas-admin auth login
+Enter credentials for http://server.demo.sas.com:
+
+Userid> christine
+
+Password> Login succeeded. Token saved.
+
+D:\workshop\SVFT\sas-admin>sas-admin plugins h
+NAME:
+   sas-admin plugins - Manages plugins.
+
+USAGE:
+   sas-admin plugins [global options] command [command options] [arguments...]
+
+VERSION:
+   1.18.1
+
+COMMANDS:
+   add-repo             Adds a new plugin repository.
+   disable-default-repo Disables the default SAS plugin repository.
+   enable-default-repo  Enables the default SAS plugin repository.
+   help, h              Shows a list of commands or help for one command.
+   install              Installs a new command line plugin.
+   list                 Lists existing command line plugins.
+   list-repo-plugins    Lists plugins in available repositories.
+   list-repos           Lists all available plugin repositories.
+   remove-repo          Removes the specified plugin repository.
+   uninstall            Uninstalls an existing command line plugin.
+   validate             Validates an existing command line plugin.
+
+GLOBAL OPTIONS:
+   --help, -h   Shows help.
+
+
+D:\workshop\SVFT\sas-admin>sas-admin plugins list
+Listing available command line plugins...
+
+No plugins installed.
+
+
+D:\workshop\SVFT\sas-admin>sas-admin plugins install identities
+You must specify a location to retrieve the plugin binary with --file, --url, or --repo.
+
+D:\workshop\SVFT\sas-admin>sas-admin plugins install identities --repo
+You must specify a location to retrieve the plugin binary with --file, --url, or --repo.
+
+D:\workshop\SVFT\sas-admin>sas-admin plugins install identities --repo sas
+You must specify a location to retrieve the plugin binary with --file, --url, or --repo.
+
+D:\workshop\SVFT\sas-admin>sas-admin plugins install identities --repo h
+You must specify a location to retrieve the plugin binary with --file, --url, or --repo.
+
+D:\workshop\SVFT\sas-admin> sas-admin plugins list-repo-plugins
+Getting list of plugins from the SAS repository...
+
+Name            Version   Description
+audit           1.17.2    Gets SAS audit information.
+authorization   1.17.5    Gets general authorization information and manages rules.
+backup          1.6.3     Plugin for SAS Backup
+cas             1.12.18   Manages CAS administration and authorization.
+compute         1.2.7     Gets and configures Compute and Launcher Contexts.
+configuration   1.29.6    Manages SAS Viya configuration.
+devices         1.7.15    Manages mobile device denylist and allowlist actions.
+folders         1.18.1    Gets and manages SAS folders.
+fonts           1.7.6     Manages SAS provided fonts and SAS Visual Analytics custom fonts.
+healthcheck     1.2.9     Provides health checks and status for SAS products.
+identities      1.16.5    Gets identity information and manages custom groups.
+inventory       1.8.11    Manages SAS product inventory.
+job             2.2.6     SAS Job Command Line Interface
+licenses        1.6.6     Manages SAS product licenses.
+oauth           1.3.4     Registers and manages OAuth clients.
+qkbs            1.6.4     Manages SAS Quality Knowledge Bases (QKBs) on a CAS server.
+reports         1.9.15    Manages SAS Visual Analytics reports from SAS Viya.
+transfer        1.18.8    Manages the promotion of content across environments.
+
+
+D:\workshop\SVFT\sas-admin> sas-admin plugins install --repo SAS authorization
+Installing the authorization plugin...
+Retrieving source file from the SAS repository...
+3293608 bytes downloaded.
+Saving authorization plugin to C:\Users\student\.sas\admin-plugins\sas-authorization-cli-1.17.5-20201214.1607904000.exe...
+Plugin authorization successfully installed.
+
+
+D:\workshop\SVFT\sas-admin> sas-admin plugins install --repo SAS identities
+Installing the identities plugin...
+Retrieving source file from the SAS repository...
+3296644 bytes downloaded.
+Saving identities plugin to C:\Users\student\.sas\admin-plugins\sas-identities-cli-1.16.5-20201214.1607904000.exe...
+Plugin identities successfully installed.
+
+
+D:\workshop\SVFT\sas-admin> sas-admin plugins install --repo SAS licenses
+Installing the licenses plugin...
+Retrieving source file from the SAS repository...
+3244108 bytes downloaded.
+Saving licenses plugin to C:\Users\student\.sas\admin-plugins\sas-licenses-cli-1.6.6-20201109.1604880000.exe...
+Plugin licenses successfully installed.
+
+
+D:\workshop\SVFT\sas-admin>sas-admin authorization list-rules
+{
+    "items": [
+        {
+            "id": "32449242-9598-48d3-8569-cea31383dfc5",
+            "objectUri": "/authorization/rules/",
+            "permissions": [
+                "read"
+            ],
+            "principal": "",
+            "principalType": "authenticatedUsers",
+            "type": "grant"
+        },
+        {
+            "id": "058df8b3-a8f7-446b-a781-276573364efd",
+            "objectUri": "/authorization/rules",
+            "permissions": [
+                "create"
+            ],
+            "principal": "",
+            "principalType": "authenticatedUsers",
+            "type": "grant"
+        },
+        {
+            "id": "0dc6db76-df4f-4bf4-8bfb-c3fcf5ce83cb",
+            "objectUri": "/authorization/rules",
+            "permissions": [
+                "create"
+            ],
+            "principal": "",
+            "principalType": "authenticatedUsers",
+            "type": "grant"
+        },
+        {
+            "id": "23d751d6-cd00-4ff3-8dd1-1104839e6adb",
+            "objectUri": "/authorization/rules",
+            "permissions": [
+                "update"
+            ],
+            "principal": "",
+            "principalType": "authenticatedUsers",
+            "type": "grant"
+        },
+        {
+            "id": "3c6b025b-0758-43ad-8647-2dcda36a4911",
+            "objectUri": "/authorization/rules/*",
+            "permissions": [
+                "read",
+                "create",
+                "delete",
+                "update"
+            ],
+            "principal": "",
+            "principalType": "authenticatedUsers",
+            "type": "grant"
+        },
+        {
+            "id": "bf5867aa-ce50-4320-b629-e4b131ab3913",
+            "objectUri": "/authorization/rules/*",
+            "permissions": [
+                "read",
+                "create",
+                "delete",
+                "update"
+            ],
+            "principal": "",
+            "principalType": "authenticatedUsers",
+            "type": "grant"
+        },
+        {
+            "id": "9f058a49-2c22-4217-a856-05b21029be6e",
+            "objectUri": "/**",
+            "permissions": [
+                "read",
+                "create",
+                "remove",
+                "delete",
+                "update",
+                "add",
+                "secure"
+            ],
+            "principal": "SASAdministrators",
+            "principalType": "group",
+            "type": "grant"
+        },
+        {
+            "id": "9bc00bbc-2dd3-4765-b967-b3a3231e0676",
+            "objectUri": "/authorization/rules/conditionValidation",
+            "permissions": [
+                "create"
+            ],
+            "principal": "",
+            "principalType": "everyone",
+            "type": "grant"
+        },
+        {
+            "id": "0710c3e8-c327-4374-aee7-a90fc5ddde40",
+            "objectUri": "/authorization/rules/conditionValidation/",
+            "permissions": [
+                "create"
+            ],
+            "principal": "",
+            "principalType": "everyone",
+            "type": "grant"
+        },
+        {
+            "id": "4f7c98db-7882-4af4-ab04-723cd49324de",
+            "objectUri": "/authorization/rules/**",
+            "permissions": [
+                "read",
+                "create",
+                "delete",
+                "update"
+            ],
+            "principal": "sasapp",
+            "principalType": "group",
+            "type": "grant"
+        },
+        {
+            "id": "6a5a5397-011b-4ae2-82ac-a73307d7eaaf",
+            "objectUri": "/authorization/decision",
+            "permissions": [
+                "create"
+            ],
+            "principal": "",
+            "principalType": "authenticatedUsers",
+            "type": "grant"
+        },
+        {
+            "id": "9e04342c-c911-4e73-9e77-237aec7b93b4",
+            "objectUri": "/authorization/decisions",
+            "permissions": [
+                "create"
+            ],
+            "principal": "",
+            "principalType": "authenticatedUsers",
+            "type": "grant"
+        },
+        {
+            "id": "4744bd49-f61c-4345-855c-1773dfff3357",
+            "objectUri": "/authorization/bulkDecision",
+            "permissions": [
+                "create"
+            ],
+            "principal": "",
+            "principalType": "authenticatedUsers",
+            "type": "grant"
+        },
+        {
+            "id": "14e2e52e-9280-40cd-8517-35392a64144f",
+            "objectUri": "/authorization/rules/bulkAction",
+            "permissions": [
+                "create"
+            ],
+            "principal": "",
+            "principalType": "authenticatedUsers",
+            "type": "grant"
+        },
+        {
+            "id": "7f43bdb5-ebe2-4f47-aa3c-27d772afd4aa",
+            "objectUri": "/authorization/rules/bulkAction/*",
+            "permissions": [
+                "read"
+            ],
+            "principal": "",
+            "principalType": "authenticatedUsers",
+            "type": "grant"
+        },
+        {
+            "id": "444e3ac9-9b05-46db-b7b4-455def76a7bd",
+            "objectUri": "/authorization/rules/jobs",
+            "permissions": [
+                "create"
+            ],
+            "principal": "",
+            "principalType": "authenticatedUsers",
+            "type": "grant"
+        },
+        {
+            "id": "e86f64fe-3684-11e7-a919-92ebcb67fe33",
+            "objectUri": "/authorization/rules/jobs/*",
+            "permissions": [
+                "read"
+            ],
+            "principal": "",
+            "principalType": "authenticatedUsers",
+            "type": "grant"
+        },
+        {
+            "id": "476c73ed-550d-4631-9d19-cb637c06aecc",
+            "objectUri": "/authorization/commons/validation/**",
+            "permissions": [
+                "read",
+                "create",
+                "delete",
+                "update"
+            ],
+            "principal": "",
+            "principalType": "authenticatedUsers",
+            "type": "grant"
+        },
+        {
+            "id": "da5d039f-2964-4338-b0a7-ba3a5e801168",
+            "objectUri": "/authorization/commons/validations/**",
+            "permissions": [
+                "read",
+                "create",
+                "delete",
+                "update"
+            ],
+            "principal": "",
+            "principalType": "authenticatedUsers",
+            "type": "grant"
+        },
+        {
+            "id": "49f58206-732f-4de6-8fa4-d0222d485dc3",
+            "objectUri": "/**",
+            "permissions": [
+                "read",
+                "create"
+            ],
+            "principal": "sas.deploymentBackup",
+            "principalType": "user",
+            "type": "grant"
+        },
+        {
+            "id": "48e959bf-7be3-4dbc-91e0-8bd655035116",
+            "objectUri": "/authorization/shares/",
+            "permissions": [
+                "read"
+            ],
+            "principal": "",
+            "principalType": "authenticatedUsers",
+            "type": "grant"
+        },
+        {
+            "id": "e5bf20f0-2bb6-11e8-b467-0ed5f89f718b",
+            "objectUri": "/authorization/shares/configuration/",
+            "permissions": [
+                "read"
+            ],
+            "principal": "",
+            "principalType": "authenticatedUsers",
+            "type": "grant"
+        },
+        {
+            "id": "be02e83e-2bcb-11e8-b467-0ed5f89f718b",
+            "objectUri": "/authorization/shares/*",
+            "permissions": [
+                "read"
+            ],
+            "principal": "",
+            "principalType": "authenticatedUsers",
+            "type": "grant"
+        },
+        {
+            "id": "4660b48e-2df9-11e8-b467-0ed5f89f718b",
+            "objectUri": "/authorization/shares",
+            "permissions": [
+                "update"
+            ],
+            "principal": "",
+            "principalType": "authenticatedUsers",
+            "type": "grant"
+        },
+        {
+            "id": "fe0e2fa4-df1b-43a8-aec7-ac2f0a809967",
+            "objectUri": "/compute/contexts/073cca6e-c463-430c-a84e-e81b0029c7f5/sessions",
+            "permissions": [
+                "create"
+            ],
+            "principal": "",
+            "principalType": "authenticatedUsers",
+            "type": "grant"
+        },
+        {
+            "id": "0ac8a30c-f913-4e88-9622-e57bb9dec1b5",
+            "objectUri": "/authorization/shares",
+            "permissions": [
+                "create"
+            ],
+            "principal": "",
+            "principalType": "authenticatedUsers",
+            "type": "grant"
+        },
+        {
+            "id": "SASThemeDesigner",
+            "objectUri": "/SASThemeDesigner/**",
+            "permissions": [
+                "read"
+            ],
+            "principal": "ApplicationAdministrators",
+            "principalType": "group",
+            "type": "grant"
+        },
+        {
+            "id": "analyticsplatform",
+            "objectUri": "/ModelStudio/**",
+            "permissions": [
+                "read"
+            ],
+            "principal": "",
+            "principalType": "authenticatedUsers",
+            "type": "grant"
+        },
+        {
+            "id": "33c4be8d-8513-4e4b-a5f5-836dc3d2b277",
+            "objectUri": "/reportDistribution/",
+            "permissions": [
+                "read"
+            ],
+            "principal": "",
+            "principalType": "authenticatedUsers",
+            "type": "grant"
+        },
+        {
+            "id": "6894e22a-be9a-4060-aea4-1e6dbb49b063",
+            "objectUri": "/dataProfiles/",
+            "permissions": [
+                "read"
+            ],
+            "principal": "",
+            "principalType": "everyone",
+            "type": "grant"
+        },
+        {
+            "id": "f9939043-8354-42d3-80af-99f27c3e9fa8",
+            "objectUri": "/modelPublish/",
+            "permissions": [
+                "read"
+            ],
+            "principal": "",
+            "principalType": "authenticatedUsers",
+            "type": "grant"
+        },
+        {
+            "id": "e74b4693-67a0-46f8-903a-96cce9d1ad63",
+            "objectUri": "/annotations/",
+            "permissions": [
+                "read"
+            ],
+            "principal": "",
+            "principalType": "authenticatedUsers",
+            "type": "grant"
+        },
+        {
+            "id": "a33736ff-d3c1-42bc-8554-534b5da68201",
+            "objectUri": "/SASGraphBuilder/**",
+            "permissions": [
+                "read"
+            ],
+            "principal": "",
+            "principalType": "authenticatedUsers",
+            "type": "grant"
+        },
+        {
+            "id": "6444a992-831a-4cda-9595-c53d9a8d1cf9",
+            "objectUri": "/connect/",
+            "permissions": [
+                "read"
+            ],
+            "principal": "",
+            "principalType": "authenticatedUsers",
+            "type": "grant"
+        },
+        {
+            "id": "bca226da-c3e2-495c-902e-742bc736d078",
+            "objectUri": "/notifications/",
+            "permissions": [
+                "read"
+            ],
+            "principal": "",
+            "principalType": "authenticatedUsers",
+            "type": "grant"
+        },
+        {
+            "id": "42a6f786-fdee-11e6-aabd-005056ac31dc",
+            "objectUri": "/SASLogon/Users/*/otp",
+            "permissions": [
+                "create"
+            ],
+            "principal": "sas.forecastingFilters",
+            "principalType": "user",
+            "type": "grant"
+        },
+        {
+            "id": "3288b305-981f-4b8d-b440-0911eabc3fac",
+            "objectUri": "/preferences/",
+            "permissions": [
+                "read"
+            ],
+            "principal": "",
+            "principalType": "authenticatedUsers",
+            "type": "grant"
+        },
+        {
+            "id": "6f229a94-abf9-4328-a8f4-2237fa95f9b5",
+            "objectUri": "/scoreExecution/",
+            "permissions": [
+                "read"
+            ],
+            "principal": "",
+            "principalType": "authenticatedUsers",
+            "type": "grant"
+        },
+        {
+            "id": "38454e2a-548e-458d-931f-ddeaa3bc135a",
+            "objectUri": "/qkbManagement/",
+            "permissions": [
+                "read"
+            ],
+            "principal": "",
+            "principalType": "authenticatedUsers",
+            "type": "grant"
+        },
+        {
+            "id": "SASDrive-01",
+            "objectUri": "/SASDrive/**",
+            "permissions": [
+                "read"
+            ],
+            "principal": "",
+            "principalType": "authenticatedUsers",
+            "type": "grant"
+        },
+        {
+            "id": "FontsServiceRule1",
+            "objectUri": "/fonts/**",
+            "permissions": [
+                "create",
+                "delete"
+            ],
+            "principal": "SASAdministrators",
+            "principalType": "group",
+            "type": "grant"
+        },
+        {
+            "id": "78b0b7e7-7d3d-4748-a7ad-0b7be1036c04",
+            "objectUri": "/deviceManagement/commons/settings",
+            "permissions": [
+                "read"
+            ],
+            "principal": "",
+            "principalType": "authenticatedUsers",
+            "type": "grant"
+        },
+        {
+            "id": "b4dd682a-ebe3-44af-8e73-5fef9e75f47d",
+            "objectUri": "/analyticsComponents/components",
+            "permissions": [
+                "read",
+                "create"
+            ],
+            "principal": "",
+            "principalType": "authenticatedUsers",
+            "type": "grant"
+        },
+        {
+            "id": "81e129c0-a6d5-4c9c-aae3-1425915b0a09",
+            "objectUri": "/authorization/shares/*",
+            "permissions": [
+                "read",
+                "delete",
+                "update"
+            ],
+            "principal": "",
+            "principalType": "authenticatedUsers",
+            "type": "grant"
+        },
+        {
+            "id": "e75c2504-8fd0-11ea-bc55-0242ac130003",
+            "objectUri": "/authorization/hierarchy",
+            "permissions": [
+                "create"
+            ],
+            "principal": "sas.folders",
+            "principalType": "user",
+            "type": "grant"
+        },
+        {
+            "id": "appRegistry-1",
+            "objectUri": "/appRegistry/",
+            "permissions": [
+                "read"
+            ],
+            "principal": "",
+            "principalType": "authenticatedUsers",
+            "type": "grant"
+        },
+        {
+            "id": "2653dbbe-dcd7-42cf-b8de-bc6dde16fb6b",
+            "objectUri": "/dataFlows/",
+            "permissions": [
+                "read"
+            ],
+            "principal": "",
+            "principalType": "everyone",
+            "type": "grant"
+        },
+        {
+            "id": "f83789ce-33d7-444c-bad1-bdb50cf99185",
+            "objectUri": "/dataMiningResults/**",
+            "permissions": [
+                "read",
+                "create"
+            ],
+            "principal": "",
+            "principalType": "authenticatedUsers",
+            "type": "grant"
+        },
+        {
+            "id": "44340799-6f0a-471a-b98d-84acff73bd82",
+            "objectUri": "/forecastingComparison/**",
+            "permissions": [
+                "read",
+                "create",
+                "delete",
+                "update"
+            ],
+            "principal": "",
+            "principalType": "authenticatedUsers",
+            "type": "grant"
+        },
+        {
+            "id": "23ca67ce-9165-4f47-8f4a-63a3245fce21",
+            "objectUri": "/deviceManagement/",
+            "permissions": [
+                "read"
+            ],
+            "principal": "",
+            "principalType": "authenticatedUsers",
+            "type": "grant"
+        }
+    ]
+}
+
+Press y or n to continue: > sas-admin identities list-users
+
+D:\workshop\SVFT\sas-admin>y
+'y' is not recognized as an internal or external command,
+operable program or batch file.
+
+D:\workshop\SVFT\sas-admin>
+D:\workshop\SVFT\sas-admin>sas-admin identities list-user >d:\workshop\SVFT\users.csv
+
+D:\workshop\SVFT\sas-admin>sas-admin identities list-users >d:\workshop\SVFT\users.csv
+The process cannot access the file because it is being used by another process.
+
+D:\workshop\SVFT\sas-admin>sas-admin identities list-users >d:\workshop\SVFT\users.csv
+
+D:\workshop\SVFT\sas-admin>sas-admin identities list-users >d:\workshop\SVFT\users.json
+
+D:\workshop\SVFT\sas-admin> sas-admin plugins install --repo SAS cas
+Installing the cas plugin...
+Retrieving source file from the SAS repository...
+4089348 bytes downloaded.
+Saving cas plugin to C:\Users\student\.sas\admin-plugins\sas-cas-cli-1.12.18-20210311.1615420800.exe...
+Plugin cas successfully installed.
+
+
+D:\workshop\SVFT\sas-admin>sas-admin cas -h
+NAME:
+   sas-cas
+
+USAGE:
+   sas-admin cas command [command options] [arguments...]
+
+COMMANDS:
+   admin-users                  Allows the management of the administrative users in a CAS server.
+   caslibs                      Manage caslibs in a specified CAS server.
+   environment                  Manages the environment variables that are used in operations of the SAS CAS Management CLI.
+   facilitate-guest             Modifies the direct access controls for predefined caslibs in order to facilitate guest access.
+   format-libraries             Manages the SAS format libraries in a specified CAS server, the SAS formats that they contain, and the SAS format search order.
+   generate-auxiliary-scripts   Generates scripts that can be used in the management of CAS.
+   generate-cas-samples         Generates caslib templates examples, SAS formats examples, and CAS resource management policies examples.
+   generate-guest-controls      Generates a copy of the default direct access controls that facilitate guest access from the CAS perspective.
+   help, h                      Shows a list of commands or help for one command.
+   remove-guest-controls        Modifies the direct access controls for predefined caslibs in order to remove guest access.
+   servers                      Manages the CAS server operations.
+   sessions                     Manages the sessions on a specific CAS server.
+   settings                     Manages the CAS-related settings that are specific to this deployment.
+   tables                       Manages the tables in a specified CAS server and caslib.
+   transactions                 Manages access control transactions for the specified caslib or table.
+
+
+D:\workshop\SVFT\sas-admin>sas-admin cas sessions list-sessions
+sas-admin cas: 'list-sessions' is not a sas-admin cas command. See 'sas-admin cas --help'.
+
+D:\workshop\SVFT\sas-admin>sas-admin cas sessions h
+NAME:
+   sas-cas sessions - Manages the sessions on a specific CAS server.
+
+USAGE:
+   sas-cas sessions [global options] command [command options] [arguments...]
+
+VERSION:
+   1.12.18
+
+COMMANDS:
+   create       Creates the specified CAS session.
+   delete       Deletes the specified CAS session.
+   help, h      Shows a list of commands or help for one command.
+   list         Lists the sessions in a given CAS server.
+   show-info    Shows information for the specified session.
+
+GLOBAL OPTIONS:
+   --help, -h   Shows help.
+
+
+D:\workshop\SVFT\sas-admin>sas-admin cas sessions list
+The server must be specified: [$SAS_CLI_DEFAULT_CAS_SERVER]
+
+D:\workshop\SVFT\sas-admin>sas-admin licenses count
+There are 289 products licensed.
+
+D:\workshop\SVFT\sas-admin>sas-admin cas h
+NAME:
+   sas-cas
+
+USAGE:
+   sas-admin cas command [command options] [arguments...]
+
+COMMANDS:
+   admin-users                  Allows the management of the administrative users in a CAS server.
+   caslibs                      Manage caslibs in a specified CAS server.
+   environment                  Manages the environment variables that are used in operations of the SAS CAS Management CLI.
+   facilitate-guest             Modifies the direct access controls for predefined caslibs in order to facilitate guest access.
+   format-libraries             Manages the SAS format libraries in a specified CAS server, the SAS formats that they contain, and the SAS format search order.
+   generate-auxiliary-scripts   Generates scripts that can be used in the management of CAS.
+   generate-cas-samples         Generates caslib templates examples, SAS formats examples, and CAS resource management policies examples.
+   generate-guest-controls      Generates a copy of the default direct access controls that facilitate guest access from the CAS perspective.
+   help, h                      Shows a list of commands or help for one command.
+   remove-guest-controls        Modifies the direct access controls for predefined caslibs in order to remove guest access.
+   servers                      Manages the CAS server operations.
+   sessions                     Manages the sessions on a specific CAS server.
+   settings                     Manages the CAS-related settings that are specific to this deployment.
+   tables                       Manages the tables in a specified CAS server and caslib.
+   transactions                 Manages access control transactions for the specified caslib or table.
+
+
+D:\workshop\SVFT\sas-admin>sas-admin cas servers h
+NAME:
+   sas-cas servers - Manages the CAS server operations.
+
+USAGE:
+   sas-cas servers [global options] command [command options] [arguments...]
+
+VERSION:
+   1.12.18
+
+COMMANDS:
+   help, h      Shows a list of commands or help for one command.
+   list         Lists the CAS servers.
+   loggers      Manages the CAS server loggers.
+   paths-list   Enables the management of the paths list that controls where caslibs can be created for a specified CAS server.
+   policies     Manages the resource management policies for a CAS server.
+   privileges   Manages the ability to create and delete session and global caslibs.
+   show-info    Shows detailed information about the specified CAS server.
+   stop         Stops the specified CAS server.
+   stoplists    Manages operations of the CAS server stop lists.
+
+GLOBAL OPTIONS:
+   --help, -h   Shows help.
+
+
+D:\workshop\SVFT\sas-admin>sas-admin cas servers list
+{
+    "items": [
+        {
+            "description": "controller",
+            "host": "controller.sas-cas-server-default.edu.svc.cluster.local",
+            "name": "cas-shared-default",
+            "port": 5570,
+            "restPort": 8777,
+            "restProtocol": "http",
+            "state": "running",
+            "tags": [
+                "controller",
+                "primary",
+                "appServerEnabled=true",
+                "rootLibPath=/cas/data/caslibs",
+                "rootAppLibPath=/cas/data/apps"
+            ]
+        }
+    ]
+}
+
+D:\workshop\SVFT\sas-admin>sas-admin cas sessions list
+The server must be specified: [$SAS_CLI_DEFAULT_CAS_SERVER]
+
+D:\workshop\SVFT\sas-admin>sas-admin cas sessions list server cas-shared-default
+The server must be specified: [$SAS_CLI_DEFAULT_CAS_SERVER]
+
+D:\workshop\SVFT\sas-admin>sas-admin cas sessions list h
+The server must be specified: [$SAS_CLI_DEFAULT_CAS_SERVER]
+
+D:\workshop\SVFT\sas-admin>sas-admin cas server list
+sas-admin cas: 'server' is not a sas-admin cas command. See 'sas-admin cas --help'.
+
+D:\workshop\SVFT\sas-admin>sas-admin cas --help
+NAME:
+   sas-cas
+
+USAGE:
+   sas-admin cas command [command options] [arguments...]
+
+COMMANDS:
+   admin-users                  Allows the management of the administrative users in a CAS server.
+   caslibs                      Manage caslibs in a specified CAS server.
+   environment                  Manages the environment variables that are used in operations of the SAS CAS Management CLI.
+   facilitate-guest             Modifies the direct access controls for predefined caslibs in order to facilitate guest access.
+   format-libraries             Manages the SAS format libraries in a specified CAS server, the SAS formats that they contain, and the SAS format search order.
+   generate-auxiliary-scripts   Generates scripts that can be used in the management of CAS.
+   generate-cas-samples         Generates caslib templates examples, SAS formats examples, and CAS resource management policies examples.
+   generate-guest-controls      Generates a copy of the default direct access controls that facilitate guest access from the CAS perspective.
+   help, h                      Shows a list of commands or help for one command.
+   remove-guest-controls        Modifies the direct access controls for predefined caslibs in order to remove guest access.
+   servers                      Manages the CAS server operations.
+   sessions                     Manages the sessions on a specific CAS server.
+   settings                     Manages the CAS-related settings that are specific to this deployment.
+   tables                       Manages the tables in a specified CAS server and caslib.
+   transactions                 Manages access control transactions for the specified caslib or table.
+
+
+D:\workshop\SVFT\sas-admin>sas-admin cas sessions list --owner lynn --superuser --server cas-shared-default
+{
+    "items": [
+        {
+            "authenticationType": "OAuth",
+            "id": "2124e792-b6c3-3149-8f7f-74f42823c0e3",
+            "name": "dataExplorer:Wed Apr 14 15:15:10 2021",
+            "owner": "lynn",
+            "state": "Disconnected",
+            "transactionState": ""
+        },
+        {
+            "authenticationType": "OAuth",
+            "id": "94b0517a-d816-834f-9e01-029f5eb2e836",
+            "name": "SAS Environment Manager:Wed Apr 14 15:15:10 2021",
+            "owner": "lynn",
+            "state": "Disconnected",
+            "transactionState": ""
+        }
+    ],
+    "name": "sessions",
+    "version": 2
+}
+
+
+D:\workshop\SVFT\sas-admin>sas-admin cas sessions list --owner lynn --superuser --server cas-shared-default
+{
+    "items": [
+        {
+            "authenticationType": "OAuth",
+            "id": "f56cca6b-6eff-f148-9f4e-fe22137d084e",
+            "name": "  Session:Wed Apr 14 15:25:38 2021",
+            "owner": "lynn",
+            "state": "Connected",
+            "transactionState": ""
+        },
+        {
+            "authenticationType": "OAuth",
+            "id": "87ad0396-511b-f440-8317-1d6488e6b25c",
+            "name": "  Session:Wed Apr 14 15:25:39 2021",
+            "owner": "lynn",
+            "state": "Connected",
+            "transactionState": ""
+        },
+        {
+            "authenticationType": "OAuth",
+            "id": "38116ba0-99ff-bc4b-8e75-2109b9db47f7",
+            "name": "  Session:Wed Apr 14 15:25:44 2021",
+            "owner": "lynn",
+            "state": "Connected",
+            "transactionState": ""
+        },
+        {
+            "authenticationType": "OAuth",
+            "id": "0a4ef0ad-b76b-a14b-8c91-6ab4ee13ea70",
+            "name": "  Session:Wed Apr 14 15:25:44 2021",
+            "owner": "lynn",
+            "state": "Connected",
+            "transactionState": ""
+        },
+        {
+            "authenticationType": "OAuth",
+            "id": "05fe0457-b632-7e49-b495-1896b08d4188",
+            "name": "  Session:Wed Apr 14 15:25:44 2021",
+            "owner": "lynn",
+            "state": "Connected",
+            "transactionState": ""
+        },
+        {
+            "authenticationType": "OAuth",
+            "id": "815c032a-8c98-b242-b977-8209716da96c",
+            "name": "  Session:Wed Apr 14 15:25:45 2021",
+            "owner": "lynn",
+            "state": "Connected",
+            "transactionState": ""
+        },
+        {
+            "authenticationType": "OAuth",
+            "id": "74894c26-c7f6-1b49-95ea-7e26447f0f1d",
+            "name": "  Session:Wed Apr 14 15:26:13 2021",
+            "owner": "lynn",
+            "state": "Connected",
+            "transactionState": ""
+        },
+        {
+            "authenticationType": "OAuth",
+            "id": "2124e792-b6c3-3149-8f7f-74f42823c0e3",
+            "name": "dataExplorer:Wed Apr 14 15:15:10 2021",
+            "owner": "lynn",
+            "state": "Disconnected",
+            "transactionState": ""
+        },
+        {
+            "authenticationType": "OAuth",
+            "id": "94b0517a-d816-834f-9e01-029f5eb2e836",
+            "name": "SAS Environment Manager:Wed Apr 14 15:15:10 2021",
+            "owner": "lynn",
+            "state": "Disconnected",
+            "transactionState": ""
+        }
+    ],
+    "name": "sessions",
+    "version": 2
+}
+
+
+D:\workshop\SVFT\sas-admin>sas-admin cas sessions list --owner lynn --superuser --server cas-shared-default
+No sessions are available that match the specified filters.
+
+D:\workshop\SVFT\sas-admin>sas-admin cas sessions list --owner lynn --superuser --server cas-shared-default
+{
+    "items": [
+        {
+            "authenticationType": "OAuth",
+            "id": "0b5359ee-090c-2e43-a6ee-b226dfb46329",
+            "name": "MYSESSION:Wed Apr 14 15:34:40 2021",
+            "owner": "lynn",
+            "state": "Connected",
+            "transactionState": ""
+        }
+    ],
+    "name": "sessions",
+    "version": 2
+}
+
+
+D:\workshop\SVFT\sas-admin>sas-admin cas sessions list --owner lynn --superuser --server cas-shared-default
+{
+    "items": [
+        {
+            "authenticationType": "OAuth",
+            "id": "18882d60-79f1-ce4b-bbb4-2f32e015f8f4",
+            "name": "  Session:Wed Apr 14 15:35:36 2021",
+            "owner": "lynn",
+            "state": "Connected",
+            "transactionState": ""
+        },
+        {
+            "authenticationType": "OAuth",
+            "id": "01cc66b8-a79c-2c4e-84b0-6af5406fb567",
+            "name": "  Session:Wed Apr 14 15:35:39 2021",
+            "owner": "lynn",
+            "state": "Connected",
+            "transactionState": ""
+        },
+        {
+            "authenticationType": "OAuth",
+            "id": "8425e05a-6ceb-3b4c-ae54-c39d98301999",
+            "name": "  Session:Wed Apr 14 15:35:39 2021",
+            "owner": "lynn",
+            "state": "Connected",
+            "transactionState": ""
+        },
+        {
+            "authenticationType": "OAuth",
+            "id": "2237f48c-c27a-7143-a65f-ef2419acf8ba",
+            "name": "dataExplorer:Wed Apr 14 15:35:32 2021",
+            "owner": "lynn",
+            "state": "Disconnected",
+            "transactionState": ""
+        },
+        {
+            "authenticationType": "OAuth",
+            "id": "0b5359ee-090c-2e43-a6ee-b226dfb46329",
+            "name": "MYSESSION:Wed Apr 14 15:34:40 2021",
+            "owner": "lynn",
+            "state": "Connected",
+            "transactionState": ""
+        }
+    ],
+    "name": "sessions",
+    "version": 2
+}
