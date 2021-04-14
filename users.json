@@ -1,0 +1,144 @@
+{
+    "items": [
+        {
+            "id": "ahmed",
+            "name": "Ahmed",
+            "state": "active"
+        },
+        {
+            "id": "anita",
+            "name": "Anita",
+            "state": "active"
+        },
+        {
+            "id": "barbara",
+            "name": "Barbara",
+            "state": "active"
+        },
+        {
+            "id": "bruno",
+            "name": "Bruno",
+            "state": "active"
+        },
+        {
+            "id": "cas",
+            "name": "cas",
+            "state": "active"
+        },
+        {
+            "id": "christine",
+            "name": "Christine",
+            "state": "active"
+        },
+        {
+            "id": "darrell",
+            "name": "Darrell",
+            "state": "active"
+        },
+        {
+            "id": "ellen",
+            "name": "Ellen",
+            "state": "active"
+        },
+        {
+            "id": "eric",
+            "name": "Eric",
+            "state": "active"
+        },
+        {
+            "id": "george",
+            "name": "George",
+            "state": "active"
+        },
+        {
+            "id": "gloria",
+            "name": "Gloria",
+            "state": "active"
+        },
+        {
+            "id": "harvey",
+            "name": "Harvey",
+            "state": "active"
+        },
+        {
+            "id": "henri",
+            "name": "Henri",
+            "state": "active"
+        },
+        {
+            "id": "jacques",
+            "name": "Jacques",
+            "state": "active"
+        },
+        {
+            "id": "kari",
+            "name": "Kari",
+            "state": "active"
+        },
+        {
+            "id": "linda",
+            "name": "Linda",
+            "state": "active"
+        },
+        {
+            "id": "lynn",
+            "name": "Lynn",
+            "state": "active"
+        },
+        {
+            "id": "marcel",
+            "name": "Marcel",
+            "state": "active"
+        },
+        {
+            "id": "mark",
+            "name": "Mark",
+            "state": "active"
+        },
+        {
+            "id": "ole",
+            "name": "Ole",
+            "state": "active"
+        },
+        {
+            "id": "robert",
+            "name": "Robert",
+            "state": "active"
+        },
+        {
+            "id": "sally",
+            "name": "Sally",
+            "state": "active"
+        },
+        {
+            "id": "samantha",
+            "name": "Samantha",
+            "state": "active"
+        },
+        {
+            "id": "sasadm",
+            "name": "sasadm",
+            "state": "active"
+        },
+        {
+            "id": "sasldap",
+            "name": "SAS LDAP Service Account",
+            "state": "active"
+        },
+        {
+            "id": "stephanie",
+            "name": "Stephanie",
+            "state": "active"
+        },
+        {
+            "id": "student",
+            "name": "Student",
+            "state": "active"
+        },
+        {
+            "id": "susan",
+            "name": "Susan",
+            "state": "active"
+        }
+    ]
+}
